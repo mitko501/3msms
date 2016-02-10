@@ -30,7 +30,7 @@ public class SubjectManagerTest {
     public void clearDatabase() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        em.createNativeQuery("DELETE FROM SUB_TECH").executeUpdate();
+        em.createNativeQuery("DELETE FROM SUBJECT_TEACHER").executeUpdate();
         em.createNativeQuery("DELETE FROM TEACHER").executeUpdate();
         em.createNativeQuery("DELETE FROM SUBJECT").executeUpdate();
         em.getTransaction().commit();
