@@ -4,7 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.sms.database.manager.SubjectManager;
+import org.sms.database.manager.TeacherManager;
 import org.sms.database.managerImpl.SubjectManagerImpl;
+import org.sms.database.managerImpl.TeacherManagerImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,6 +23,7 @@ import static org.junit.Assert.assertNull;
 public class SubjectManagerTest {
 
     private SubjectManager subjectManager = new SubjectManagerImpl();
+    private TeacherManager teacherManager = new TeacherManagerImpl();
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("3msmsPU");
 
     private Subject pb161;
@@ -30,7 +33,7 @@ public class SubjectManagerTest {
     public void clearDatabase() {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        em.createNativeQuery("DELETE FROM SUB_TECH").executeUpdate();
+        em.createNativeQuery("DELETE FROM SUB_TEA").executeUpdate();
         em.createNativeQuery("DELETE FROM TEACHER").executeUpdate();
         em.createNativeQuery("DELETE FROM SUBJECT").executeUpdate();
         em.getTransaction().commit();
@@ -62,7 +65,7 @@ public class SubjectManagerTest {
 
     @Test
     public void testGetSubjectById() {
-        Subject actual = subjectManager.getSubjectById(0);
+        Subject actual = subjectManager.getSubjectById((long) 0);
         assertNull(actual);
 
         subjectManager.createSubject(pb161);

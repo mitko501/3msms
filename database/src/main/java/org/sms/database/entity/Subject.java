@@ -10,19 +10,24 @@ import java.util.List;
 
 @Entity
 @Table
-public class Subject {
+public class Subject extends AbstractEntity {
 
     @Id
     @GeneratedValue
-    private long id;
+    @Column(name = "SUBJECT_ID")
+    private Long id;
 
+    @Column(name = "CODE")
     private String code;
 
+    @Column(name = "NAME")
     private String name;
 
+    @Column(name = "DIFFICULTY_RATING")
     private double difficultyRating;
 
-    @OneToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "SUB_TEA")
     private List<Teacher> teachers;
 
     public Subject() {
@@ -34,17 +39,18 @@ public class Subject {
     }
 
     public Subject(String code, String name, double difficultyRating) {
+        this.id = null;
         this.code = code;
         this.name = name;
         this.difficultyRating = difficultyRating;
         this.teachers = new ArrayList<Teacher>();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -100,5 +106,26 @@ public class Subject {
         int result = (int) (getId() ^ (getId() >>> 32));
         result = 31 * result + (getCode() != null ? getCode().hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", difficultyRating=" + difficultyRating +
+                ", teachers=" + teachers.size() +
+                '}';
+    }
+
+    public String toStringWithTeachers() {
+        return "Subject{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", difficultyRating=" + difficultyRating +
+                ", teachers=" + teachers +
+                '}';
     }
 }

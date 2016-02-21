@@ -1,5 +1,7 @@
 package org.sms.database.manager;
 
+import org.sms.database.entity.Teacher;
+
 import java.util.Collection;
 
 /**
@@ -7,13 +9,13 @@ import java.util.Collection;
  */
 public interface TeacherManager {
 
-    void createTeacher(TeacherManager subject);
+    void createTeacher(Teacher teacher);
 
-    Collection<TeacherManager> getAllTeachers();
+    Collection<Teacher> getAllTeachers();
 
-    TeacherManager getTeacherById(long id);
+    Teacher getTeacherById(Long id);
 
-    void updateTeacher(TeacherManager subject);
+    void updateTeacher(Teacher teacher);
 
-    void deleteTeacher(TeacherManager subject);
+    void deleteTeacher(Teacher teacher);
 }

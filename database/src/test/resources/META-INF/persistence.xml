@@ -10,8 +10,8 @@
         <class>org.sms.database.entity.Teacher</class>
         <properties>
 
-            <property name="javax.persistence.jdbc.driver"   value="org.apache.derby.jdbc.ClientDataSource" /> <!-- org.apache.derby.jdbc.EmbeddedDriver -->
-            <property name="javax.persistence.jdbc.url"      value="jdbc:derby://localhost:1527/3msms;create=true;user=admin;password=admin" />
+            <property name="javax.persistence.jdbc.driver"   value="org.apache.derby.jdbc.EmbeddedDriver" />
+            <property name="javax.persistence.jdbc.url"      value="jdbc:derby:3msmsdb;create=true;user=admin;password=admin" />
 
             <!-- if this is true, hibernate will print (to stdout) the SQL it executes,
                 so you can check it to ensure it's not doing anything crazy -->

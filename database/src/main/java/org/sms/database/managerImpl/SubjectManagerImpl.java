@@ -9,33 +9,31 @@ import java.util.Collection;
 /**
  * @author mhajas
  */
-public class SubjectManagerImpl extends AbstractJPAManager implements SubjectManager {
+public class SubjectManagerImpl extends AbstractJPAManager<Subject> implements SubjectManager {
 
+    public SubjectManagerImpl() {
+        super(Subject.class);
+    }
     //TODO: check subject
     public void createSubject(Subject subject) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(subject);
-        entityManager.getTransaction().commit();
+        save(subject);
     }
 
     public Collection<Subject> getAllSubjects() {
-        Query query = entityManager.createQuery("Select s from Subject s");
-        return (Collection<Subject>) query.getResultList();
+        return findAll();
     }
 
-    public Subject getSubjectById(long id) {
-        return entityManager.find(Subject.class, id);
+    public Subject getSubjectById(Long id) {
+        return findById(id);
     }
 
     //TODO: check subject
     public void updateSubject(Subject subject) {
-        entityManager.merge(subject);
+        save(subject);
     }
 
     //TODO: check subject
     public void deleteSubject(Subject subject) {
-        entityManager.getTransaction().begin();
-        entityManager.remove(subject);
-        entityManager.getTransaction().commit();
+        remove(subject);
     }
 }

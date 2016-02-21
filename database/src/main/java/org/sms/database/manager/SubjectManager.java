@@ -13,7 +13,7 @@ public interface SubjectManager {
 
     Collection<Subject> getAllSubjects();
 
-    Subject getSubjectById(long id);
+    Subject getSubjectById(Long id);
 
     void updateSubject(Subject subject);
 
