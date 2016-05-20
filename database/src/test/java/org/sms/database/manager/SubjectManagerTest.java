@@ -38,7 +38,7 @@ public class SubjectManagerTest extends AssertableManagerTest {
 
         subjects = new ArrayList<Subject>(subjectManager.getAllSubjects());
 
-        assertEquals(2, subjects.size());
+        assertEquals(3, subjects.size());
     }
 
     @Test
