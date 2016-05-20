@@ -3,7 +3,6 @@ package org.sms.database.managerImpl;
 import org.sms.database.entity.Subject;
 import org.sms.database.manager.SubjectManager;
 
-import javax.persistence.Query;
 import java.util.Collection;
 
 /**

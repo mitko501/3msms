@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table
-public class Subject extends AbstractEntity {
+public class Subject implements AbstractEntity {
 
     @Id
     @GeneratedValue
@@ -27,7 +27,7 @@ public class Subject extends AbstractEntity {
     private double difficultyRating;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "SUB_TEA")
+    @JoinTable(name = "SUB_TEA")
     private List<Teacher> teachers;
 
     public Subject() {

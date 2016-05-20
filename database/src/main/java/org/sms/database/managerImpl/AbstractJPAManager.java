@@ -1,7 +1,6 @@
 package org.sms.database.managerImpl;
 
 import org.sms.database.entity.AbstractEntity;
-import org.sms.database.entity.Subject;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
