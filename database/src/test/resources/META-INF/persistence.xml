@@ -11,13 +11,14 @@
         <properties>
 
             <property name="javax.persistence.jdbc.driver"   value="org.apache.derby.jdbc.EmbeddedDriver" />
-            <property name="javax.persistence.jdbc.url"      value="jdbc:derby:3msmsdb;create=true;user=admin;password=admin" />
+            <property name="javax.persistence.jdbc.url"      value="jdbc:derby:target/database;create=true;user=admin;password=admin" />
 
             <!-- if this is true, hibernate will print (to stdout) the SQL it executes,
                 so you can check it to ensure it's not doing anything crazy -->
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />
+            <property name="hibernate.default_schema" value="APP"/>
             <!-- this tell Hibernate to update the DDL when it starts, very useful
                 for development, dangerous in production -->
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>

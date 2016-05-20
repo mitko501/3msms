@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table
-public class Teacher extends AbstractEntity {
+public class Teacher implements AbstractEntity {
 
     @Id
     @GeneratedValue
@@ -20,16 +20,21 @@ public class Teacher extends AbstractEntity {
     @Column(name = "NAME")
     private String name;
 
+    @Column(name = "SURNAME")
+    private String surName;
+
     @ManyToMany(mappedBy = "teachers", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Subject> subjects;
 
-    public Teacher(String name) {
-        this.name = name;
-        subjects = new ArrayList<Subject>();
-    }
 
     public Teacher() {
-        this("");
+        this("", "");
+    }
+
+    public Teacher(String name, String surName) {
+        this.name = name;
+        this.surName = surName;
+        subjects = new ArrayList<Subject>();
     }
 
     public Long getId() {
@@ -60,11 +65,20 @@ public class Teacher extends AbstractEntity {
         subjects.add(subject);
     }
 
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
+
     @Override
     public String toString() {
         return "Teacher{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
                 ", subjects=" + subjects.size() +
                 '}';
     }
@@ -73,6 +87,7 @@ public class Teacher extends AbstractEntity {
         return "Teacher{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
                 ", subjects=" + subjects +
                 '}';
     }

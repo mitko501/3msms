@@ -1,7 +1,6 @@
 package org.sms.database.managerImpl;
 
 import org.sms.database.entity.AbstractEntity;
-import org.sms.database.entity.Subject;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -33,7 +32,7 @@ abstract public class AbstractJPAManager<T extends AbstractEntity> {
     }
 
     public Collection<T> findAll() {
-        Query query = entityManager.createQuery("SELECT t FROM " + type.getTypeName() + " t");
+        Query query = entityManager.createQuery("SELECT t FROM " + type.getName() + " t");
         return (Collection<T>) query.getResultList();
     }
 
