@@ -32,7 +32,7 @@ abstract public class AbstractJPAManager<T extends AbstractEntity> {
     }
 
     public Collection<T> findAll() {
-        Query query = entityManager.createQuery("SELECT t FROM " + type.getTypeName() + " t");
+        Query query = entityManager.createQuery("SELECT t FROM " + type.getName() + " t");
         return (Collection<T>) query.getResultList();
     }
 
