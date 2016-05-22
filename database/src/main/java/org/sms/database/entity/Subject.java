@@ -9,7 +9,7 @@ import java.util.List;
  */
 
 @Entity
-@Table
+@Table(name = "SUBJECT")
 public class Subject implements AbstractEntity {
 
     @Id
