@@ -2,6 +2,8 @@ package org.sms.database.manager;
 
 import org.junit.After;
 import org.junit.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.sms.database.entity.Subject;
 import org.sms.database.entity.Teacher;
 import org.sms.database.managerImpl.SubjectManagerImpl;
@@ -15,6 +17,8 @@ import javax.persistence.Persistence;
  * @author mhajas
  */
 public abstract class AbstractManagerTest {
+
+    protected Logger log = LoggerFactory.getLogger(this.getClass());
 
     protected SubjectManager subjectManager = new SubjectManagerImpl();
     protected TeacherManager teacherManager = new TeacherManagerImpl();

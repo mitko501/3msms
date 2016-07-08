@@ -24,6 +24,7 @@ public class SubjectManagerTest extends AssertableManagerTest {
 
     @Test
     public void testCreateSubject() {
+        log.info("Test create subject");
         subjectManager.createSubject(pb161);
 
         List<Subject> subjects = new ArrayList<Subject>(subjectManager.getAllSubjects());
